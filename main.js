@@ -62,6 +62,17 @@ const app = new Vue({
     //インスタンス生成時に自動でフェッチ
     created() {
       this.todos = todoStorage.fetch()
+    },
+
+    //キャッシュの性質がある
+    computed: {
+      computedTodos: function() {
+        //フィルターをかける
+        return this.todos.filter(function(el) {
+          //条件式 ? 分岐1 : 分岐2
+          return this.current < 0 ? true : this.current === el.state
+        }, this) 
+      }
     }
   }
 )
