@@ -72,6 +72,12 @@ const app = new Vue({
           //条件式 ? 分岐1 : 分岐2
           return this.current < 0 ? true : this.current === el.state
         }, this) 
+      },
+
+      labels() {
+        return this.options.reduce(function(a,b) {
+          return Object.assign(a, {[b.value]: b.label})
+        },{})
       }
     }
   }
