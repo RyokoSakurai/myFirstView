@@ -37,6 +37,12 @@ const app = new Vue({
         deep: true
       }
     },
+
+    //保存されたリストを取得
+    //インスタンス生成時に自動でフェッチ
+    created() {
+      this.todos = todoStorage.fetch()
+    }
   }
 )
 
