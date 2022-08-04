@@ -8,6 +8,13 @@
 <body>
   <div id="app">
     <!-- 絞り込みラジオボタン -->
+    <label v-for="label in options">
+      <!--v-modelに初期値を入れている-->
+      <!--v-bindは状況に応じて属性を変更させる-->
+      <input type="radio"
+        v-model="current"
+        v-bind:value="label.value">{{label.label}}
+    </label>
     <!-- ToDo テーブル -->
     <table>
       <thead>
