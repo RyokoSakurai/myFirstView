@@ -4,8 +4,9 @@ const app = new Vue({
       //データ0でも配列と認識されるように
       todos: []
     },
+
     methods: {
-      //Todo追加処理（インスタンスメソッド）
+      //Todo追加処理（メソッド）
       doAdd: function(event,value) {
         //refで名前を付けた要素を参照、varは再代入可能な変数宣言
         var comment = this.$refs.comment
@@ -23,7 +24,19 @@ const app = new Vue({
         })
         comment.value = ''
       }
-    }
+    },
+
+    //ストレージ保存の自動処理
+    watch: {
+      //監視データ
+      todos: {
+        handler: function(todos) {
+          todoStorage.save(todos)
+        },
+        //deepでネストした（入れ子状態）データを監視
+        deep: true
+      }
+    },
   }
 )
 
