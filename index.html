@@ -25,17 +25,21 @@
           <th>{{ item.id }}</th>
           <td>{{ item.comment }}</td>
           <td class="state">
-            <button>{{ item.state }}</button>
+            <button v-on:click="doChangeState(item)">
+              {{ item.state }}
+            </button>
           </td>
           <td class="button">
-            <button>削除</button>
+            <button v-on:click="doRemove(item)">
+              削除
+            </button>
           </td>
         </tr>
       </tbody>
     </table>
     <!-- 新規登録フォーム -->
     <h2>新しい作業の追加</h2>
-    <!--formタグは入力送信フォーム作成の要素 v-on:submit.preventでdoAddメソッドを呼び出し-->
+    <!--formタグは入力送信フォーム作成の要素 v-on:submit.preventでdoAddメソッド-->
     <form class="add-form" v-on:submit.prevent="doAdd">
       <!--テキスト入力、refで変数名をつけている-->
       コメント<input type="text" ref="comment">

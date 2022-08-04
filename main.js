@@ -23,7 +23,20 @@ const app = new Vue({
           state: 0
         })
         comment.value = ''
+      },
+
+      //状態変更の処理
+      doChangeState: function(item) {
+        item.state = item.state ? 0 : 1
+      },
+      //削除の処理
+      doRemove: function(item) {
+        //indexOfで検索
+        var index = this.todos.indexOf(item)
+        //splice(ある要素,0)はある要素を挿入、1だと削除
+        this.todos.splice(index, 1)
       }
+
     },
 
     //ストレージ保存の自動処理
