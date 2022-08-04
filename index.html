@@ -34,6 +34,14 @@
       </tbody>
     </table>
     <!-- 新規登録フォーム -->
+    <h2>新しい作業の追加</h2>
+    <!--formタグは入力送信フォーム作成の要素 v-on:submit.preventでdoAddメソッドを呼び出し-->
+    <form class="add-form" v-on:submit.prevent="doAdd">
+      <!--テキスト入力、refで変数名をつけている-->
+      コメント<input type="text" ref="comment">
+      <!--送信ボタン-->
+      <button type="submit">追加</button>
+    </form>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
   <script src="main.js"></script>
