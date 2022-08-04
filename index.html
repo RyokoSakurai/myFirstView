@@ -19,6 +19,18 @@
         </tr>
       </thead>
       <tbody>
+        <!--v-for="item in todos" 各要素の一時的な名前 in 繰り返す配列、オブジェクト-->
+        <!--v-bind:key="item.id" リストのそれぞれの要素にidをつける-->
+        <tr v-for="item in todos" v-bind:key="item.id">
+          <th>{{ item.id }}</th>
+          <td>{{ item.comment }}</td>
+          <td class="state">
+            <button>{{ item.state }}</button>
+          </td>
+          <td class="button">
+            <button>削除</button>
+          </td>
+        </tr>
       </tbody>
     </table>
     <!-- 新規登録フォーム -->

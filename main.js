@@ -1,12 +1,14 @@
 const app = new Vue({
     el: '#app',
     data: {
-
+      //データ0でも配列と認識されるように
+      todos: []
     },
     methods: {
 
+        }
     }
-})
+  )
 
 // https://jp.vuejs.org/v2/examples/todomvc.html
 var STORAGE_KEY = 'todos-vuejs-demo'
