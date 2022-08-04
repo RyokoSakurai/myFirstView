@@ -21,7 +21,6 @@ const app = new Vue({
     data: {
       //データ0でも配列と認識されるように
       todos: [],
-
       options: [
         {value: -1, label: 'すべて'},
         {value: 0, label: '作業中'},
@@ -61,7 +60,6 @@ const app = new Vue({
         //splice(ある要素,0)はある要素を挿入、1だと削除
         this.todos.splice(index, 1)
       }
-
     },
 
     //ストレージ保存の自動処理
@@ -84,7 +82,7 @@ const app = new Vue({
 
     //キャッシュの性質がある
     computed: {
-      computedTodos: function() {
+      computedTodos() {
         //フィルターをかける
         return this.todos.filter(function(el) {
           //条件式 ? 分岐1 : 分岐2
